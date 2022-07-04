@@ -26,9 +26,9 @@
                     <attributeType name="String"/>
                 </attributeTypes>
             </property>
-            <property key="idTokenAttr" type="attribute" required="true">
+            <property key="idTokenAttr" type="attribute" required="true" onChange="onSignIn">
                 <caption>Id Token</caption>
-                <description>Auth Id Token</description>
+                <description />
                 <attributeTypes>
                     <attributeType name="String"/>
                 </attributeTypes>

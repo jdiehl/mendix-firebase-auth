@@ -1,7 +1,6 @@
 import { ReactElement, createElement } from "react";
-import { ViewStyle } from "react-native";
+import { NativeModules, ViewStyle } from "react-native";
 import { AppleButton, appleAuth } from "@invertase/react-native-apple-authentication";
-
 import { mergeNativeStyles, Style } from "@mendix/pluggable-widgets-tools";
 
 import { AppleAuthProps } from "../typings/AppleAuthProps";
@@ -22,11 +21,18 @@ export function AppleAuth({
     nameAttr,
     emailAttr,
     idTokenAttr,
-    onSignIn,
     style
-}: AppleAuthProps<CustomStyle>): ReactElement {
+}: AppleAuthProps<CustomStyle>): ReactElement | null {
+    // module is not supported
+    if (!NativeModules.RNAppleAuthModule) {
+        console.warn("`@invertase/react-native-apple-authentication` native dependency is missing.");
+        return null;
+    }
+
+    // Mendix styles
     const styles = mergeNativeStyles(defaultStyles, style);
 
+    // on signin handler
     async function onAppleButtonPress(): Promise<void> {
         // performs login request
         const appleAuthRequestResponse = await appleAuth.performRequest({
@@ -45,16 +51,17 @@ export function AppleAuth({
 
             // Forward response to Mendix
             if (nameAttr?.status === "available" && fullName) {
-                nameAttr.setValue(nameFromFullName(fullName));
+                const name = nameFromFullName(fullName);
+                console.info(`Set Name: ${name}`);
+                nameAttr.setValue(name);
             }
             if (emailAttr?.status === "available" && email) {
+                console.info(`Set Email: ${email}`);
                 emailAttr.setValue(email);
             }
             if (idTokenAttr.status === "available" && identityToken) {
+                console.info(`Set Token: ${identityToken}`);
                 idTokenAttr.setValue(identityToken);
-            }
-            if (onSignIn?.canExecute) {
-                onSignIn?.execute();
             }
         }
     }

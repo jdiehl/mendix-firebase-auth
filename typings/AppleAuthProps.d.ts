@@ -4,12 +4,11 @@
  * @author Mendix UI Content Team
  */
 import { CSSProperties } from "react";
-import { ActionValue, EditableValue } from "mendix";
+import { EditableValue } from "mendix";
 
 export interface AppleAuthProps<Style> {
     name: string;
     style: Style[];
-    onSignIn?: ActionValue;
     nameAttr?: EditableValue<string>;
     emailAttr?: EditableValue<string>;
     idTokenAttr: EditableValue<string>;
