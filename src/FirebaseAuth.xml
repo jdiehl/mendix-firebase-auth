@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<widget id="mendix.FirebaseAuth.FirebaseAuth" pluginWidget="true" needsEntityContext="true" offlineCapable="true"
+        supportedPlatform="Native"
+        xmlns="http://www.mendix.com/widget/1.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.mendix.com/widget/1.0/ ../node_modules/mendix/custom_widget.xsd">
+    <name>Firebase Auth</name>
+    <description>Authentication usingFirebase</description>
+    <icon/>
+    <properties>
+        <propertyGroup caption="General">
+            <property key="signinType" type="enumeration" defaultValue="apple">
+                <caption>Type</caption>
+                <description />
+                <enumerationValues>
+                    <enumerationValue key="apple">Apple</enumerationValue>
+                    <enumerationValue key="google">Google</enumerationValue>
+                </enumerationValues>
+            </property>
+        </propertyGroup>
+        <propertyGroup caption="Events">
+            <property key="signInAction" type="action" required="true">
+                <caption>On Sign In</caption>
+                <description>Action to be performed when the user signed in</description>
+            </property>
+            <property key="uidAttr" type="attribute" required="false">
+                <caption>User ID</caption>
+                <description />
+                <attributeTypes>
+                    <attributeType name="String"/>
+                </attributeTypes>
+            </property>
+            <property key="nameAttr" type="attribute" required="false">
+                <caption>Display Name</caption>
+                <description />
+                <attributeTypes>
+                    <attributeType name="String"/>
+                </attributeTypes>
+            </property>
+            <property key="emailAttr" type="attribute" required="false">
+                <caption>Email</caption>
+                <description />
+                <attributeTypes>
+                    <attributeType name="String"/>
+                </attributeTypes>
+            </property>
+            <property key="photoUrlAttr" type="attribute" required="false">
+                <caption>Photo URL</caption>
+                <description />
+                <attributeTypes>
+                    <attributeType name="String"/>
+                </attributeTypes>
+            </property>
+            <property key="idTokenAttr" type="attribute" required="true" onChange="signInAction">
+                <caption>Id Token</caption>
+                <description />
+                <attributeTypes>
+                    <attributeType name="String"/>
+                </attributeTypes>
+            </property>
+        </propertyGroup>
+    </properties>
+</widget>

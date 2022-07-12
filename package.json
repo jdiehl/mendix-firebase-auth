@@ -1,8 +1,8 @@
 {
-  "name": "mendix-apple-auth",
-  "widgetName": "AppleAuth",
+  "name": "mendix-firebase-auth",
+  "widgetName": "FirebaseAuth",
   "version": "1.0.0",
-  "description": "Apple Authentication",
+  "description": "Firebase Authentication",
   "copyright": "© Mendix Technology BV 2022. All rights reserved.",
   "author": "Jonathan Diehl",
   "engines": {
@@ -28,6 +28,9 @@
     "@types/react-native": "~0.63.52"
   },
   "dependencies": {
-    "@invertase/react-native-apple-authentication": "^2.2.1"
+    "@invertase/react-native-apple-authentication": "^2.2.1",
+    "@react-native-firebase/app": "10.1.0",
+    "@react-native-firebase/auth": "10.1.0",
+    "@react-native-google-signin/google-signin": "^8.0.0"
   }
 }
