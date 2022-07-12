@@ -5,7 +5,7 @@
             <widgetFile path="FirebaseAuth.xml"/>
         </widgetFiles>
         <files>
-            <file path="mendix/FirebaseAuth"/>
+            <file path="mendix/firebaseauth"/>
         </files>
     </clientModule>
 </package>
