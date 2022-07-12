@@ -24,7 +24,7 @@ export function FirebaseAuth(props: FirebaseAuthProps<CustomStyle>): ReactElemen
     const { signinType, uidAttr, nameAttr, emailAttr, photoUrlAttr, idTokenAttr, style } = props;
 
     // module is not supported
-    if (!NativeModules.RNFirebaseAuthModule) {
+    if (!NativeModules.RNFBAuthModule) {
         if (!warningShowed) {
             console.warn("Missing native dependencies for FirebaseAuth.");
             warningShowed = true;
